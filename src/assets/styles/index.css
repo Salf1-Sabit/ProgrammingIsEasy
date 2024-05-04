@@ -1,8 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 :root {
+  --clr-primary: #1e76cc;
+
   --clr-specialist: #03a89e;
   --clr-pupil: #008000;
+
+  --aqua-dark: #00c4a7;
+  --aqua-light: #00d1b2;
 
   --blue-bg-light: #d7e9fa;
   --blue-link: #0000ff;
@@ -29,8 +34,6 @@ body {
   font-family: var(--ff-main), -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {

@@ -1,0 +1,58 @@
+.brand-logo {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.navbar {
+  background-color: var(--clr-primary);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.navbar .nav-container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1300px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .nav-container > ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar .nav-container .middle-links {
+  gap: min(3em, 3vw);
+}
+
+.navbar .nav-container .right-links {
+  gap: 0.5em;
+}
+
+.navbar .nav-container a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar .login-button,
+.navbar .signup-button {
+  font-weight: 500;
+  padding: 0.4em 1em;
+  border-radius: 5px;
+}
+
+.navbar .signup-button {
+  background-color: var(--aqua-light);
+}
+
+.navbar .signup-button:hover {
+  background-color: var(--aqua-dark);
+}
+
+.navbar .login-button {
+  background-color: #fff;
+  font-weight: 400;
+}
