@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../assets/styles/Problems.css";
-import { NavLink } from "react-router-dom";
+
+import { problemList } from "../data/problemList";
 
 const Problems = () => {
   const [curRating, setCurRating] = useState(800);
@@ -12,7 +13,6 @@ const Problems = () => {
 
   useEffect(() => {
     const curStoredRating = localStorage.getItem("curRating");
-    console.log(curStoredRating);
     if (curStoredRating) {
       setCurRating(parseInt(curStoredRating));
     }
@@ -144,6 +144,20 @@ const Problems = () => {
           </button>
         </li>
       </ul>
+
+      <div className="problems__progress-bar">
+        <div
+          className="problems__progress-bar__fill"
+          style={{
+            width: `calc(100% / 30 * ${problemList[curRating].totSolvedCnt})`,
+          }}
+        ></div>
+        <span>0/30 Solved</span>
+      </div>
+
+      {problemList[curRating].problems.map((problem, idx) => {
+        return <p key={idx}>{problem.name}</p>;
+      })}
     </div>
   );
 };
