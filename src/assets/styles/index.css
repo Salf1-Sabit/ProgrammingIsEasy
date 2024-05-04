@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+:root {
+  --blue-link: #0000ff;
+  --blue-border: #407bff;
+  --blue-bookmark: #0068f9;
+
+  --gray-border-dark: #909090;
+  --gray-border-light: #c8cacf;
+
+  --gray-bg-dark: #d9d9d9;
+  --gray-bg-light: #ececec;
+
+  --green-dark: #59d966;
+
+  --ff-main: "Outfit", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-main), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
