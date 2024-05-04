@@ -155,9 +155,38 @@ const Problems = () => {
         <span>0/30 Solved</span>
       </div>
 
-      {problemList[curRating].problems.map((problem, idx) => {
-        return <p key={idx}>{problem.name}</p>;
-      })}
+      <div className="problems__problems-list">
+        <div className="list-row">
+          <div className="list-col">S.No</div>
+          <div className="list-col">Problems</div>
+          <div className="list-col">Solved</div>
+          <div className="list-col">Revisit</div>
+        </div>
+
+        {problemList[curRating].problems.map((problem, idx) => {
+          return (
+            <div className="list-row">
+              <div className="list-col">{idx + 1}</div>
+              <div className="list-col">
+                <a
+                  href={`${problem.link}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ color: "var(--blue-link)" }}
+                >
+                  {problem.name}
+                </a>
+              </div>
+              <div className="list-col">
+                {problem.isSolved ? "true" : "false"}
+              </div>
+              <div className="list-col">
+                {problem.isBookmarked ? "true" : "false"}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
