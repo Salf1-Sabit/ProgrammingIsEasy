@@ -35,10 +35,18 @@ const Problems = () => {
             className="text-pupil"
             style={{
               color:
-                curRating < 1300 ? "var(--clr-pupil)" : "var(--clr-specialist)",
+                curRating < 1200
+                  ? "var(--clr-pupil)"
+                  : curRating < 1400
+                  ? "var(--clr-specialist)"
+                  : "var(--blue-link)",
             }}
           >
-            {curRating < 1300 ? "Pupil" : "Specialist"}
+            {curRating < 1200
+              ? "Pupil"
+              : curRating < 1400
+              ? "Specialist"
+              : "Expert"}
           </span>
         </p>
       </div>

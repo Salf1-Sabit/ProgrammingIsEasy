@@ -30,6 +30,7 @@
   border-radius: 10px;
   background-color: var(--gray-bg-dark);
   cursor: pointer;
+  transition: 0.08s;
 }
 
 .problems__ratings-row button:focus {
