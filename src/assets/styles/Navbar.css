@@ -1,11 +1,11 @@
 .brand-logo {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .navbar {
   background-color: var(--clr-primary);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -55,4 +55,10 @@
 .navbar .login-button {
   background-color: #fff;
   font-weight: 400;
+}
+
+.active {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 4px;
+  font-weight: 500;
 }
