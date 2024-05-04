@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 :root {
+  --clr-specialist: #03a89e;
+  --clr-pupil: #008000;
+
+  --blue-bg-light: #d7e9fa;
   --blue-link: #0000ff;
   --blue-border: #407bff;
   --blue-bookmark: #0068f9;
