@@ -1,6 +1,7 @@
 .brand-logo {
   font-weight: 600;
   font-size: 20px;
+  font-family: var(--ff-logo);
 }
 
 .navbar {
