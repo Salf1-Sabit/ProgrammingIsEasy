@@ -74,7 +74,7 @@
   background-color: var(--gray-bg-light);
   border: 1px solid var(--gray-border-light);
   width: 75%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   border-radius: 10px;
   text-align: center;
@@ -93,7 +93,10 @@
 }
 
 .problems__problems-list .list-row .list-col {
-  padding: 0.8em 0;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .problems__problems-list .list-row .list-col:nth-child(1) {

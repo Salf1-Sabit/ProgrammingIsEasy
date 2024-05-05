@@ -1,14 +1,32 @@
 import React, { useEffect, useState } from "react";
-import "../assets/styles/Problems.css";
 
+// assets
+import "../assets/styles/Problems.css";
+import CheckedIcon from "../assets/icons/checked.svg";
+import UncheckedIcon from "../assets/icons/unchecked.svg";
+
+// data
 import { problemList } from "../data/problemList";
 
 const Problems = () => {
   const [curRating, setCurRating] = useState(800);
+  const [problems, setProblems] = useState(problemList[curRating].problems);
 
   const changeCurRating = (e) => {
     localStorage.setItem("curRating", e.target.innerText);
     setCurRating(parseInt(e.target.innerText));
+    setProblems(problemList[parseInt(e.target.innerText)].problems);
+  };
+
+  const toggleIsSolved = (idx) => {
+    setProblems((prevProblems) => {
+      const updatedProblems = [...prevProblems];
+      updatedProblems[idx] = {
+        ...updatedProblems[idx],
+        isSolved: !updatedProblems[idx].isSolved,
+      };
+      return updatedProblems;
+    });
   };
 
   useEffect(() => {
@@ -163,11 +181,27 @@ const Problems = () => {
           <div className="list-col">Revisit</div>
         </div>
 
-        {problemList[curRating].problems.map((problem, idx) => {
+        {problems.map((problem, idx) => {
           return (
             <div className="list-row">
-              <div className="list-col">{idx + 1}</div>
-              <div className="list-col">
+              <div
+                className="list-col"
+                style={{
+                  backgroundColor: problem.isSolved
+                    ? "var(--green-dark)"
+                    : "#fff",
+                }}
+              >
+                {idx + 1}
+              </div>
+              <div
+                className="list-col"
+                style={{
+                  backgroundColor: problem.isSolved
+                    ? "var(--green-dark)"
+                    : "#fff",
+                }}
+              >
                 <a
                   href={`${problem.link}`}
                   target="_blank"
@@ -177,11 +211,69 @@ const Problems = () => {
                   {problem.name}
                 </a>
               </div>
-              <div className="list-col">
-                {problem.isSolved ? "true" : "false"}
+              <div
+                className="list-col"
+                style={{
+                  backgroundColor: problem.isSolved
+                    ? "var(--green-dark)"
+                    : "#fff",
+                }}
+              >
+                {problem.isSolved ? (
+                  <svg
+                    class="remixicon-icon "
+                    width="25"
+                    height="25"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    onClick={() => toggleIsSolved(idx)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v14h14V5H5zm6.003 11L6.76 11.757l1.414-1.414 2.829 2.829 5.656-5.657 1.415 1.414L11.003 16z"></path>
+                  </svg>
+                ) : (
+                  <svg
+                    class="remixicon-icon "
+                    width="25"
+                    height="25"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    onClick={() => toggleIsSolved(idx)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v14h14V5H5z"></path>
+                  </svg>
+                )}
               </div>
-              <div className="list-col">
-                {problem.isBookmarked ? "true" : "false"}
+              <div
+                className="list-col"
+                style={{
+                  backgroundColor: problem.isSolved
+                    ? "var(--green-dark)"
+                    : "#fff",
+                }}
+              >
+                {problem.isBookmarked ? (
+                  <svg
+                    class="remixicon-icon "
+                    width="25"
+                    height="25"
+                    fill="#0068F9"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1zm3 7v2h8V9H8z"></path>
+                  </svg>
+                ) : (
+                  <svg
+                    class="remixicon-icon "
+                    width="25"
+                    height="25"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1zm13 2H6v15.432l6-3.761 6 3.761V4zM8 9h8v2H8V9z"></path>
+                  </svg>
+                )}
               </div>
             </div>
           );
