@@ -23,6 +23,9 @@ const Navbar = () => {
           <li>
             <NavLink to="/blogs">Blogs</NavLink>
           </li>
+          <li>
+            <NavLink to="/profile">Profile</NavLink>
+          </li>
         </ul>
 
         <ul className="right-links">
