@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 // assets
 import "../assets/styles/Problems.css";
-import CheckedIcon from "../assets/icons/checked.svg";
-import UncheckedIcon from "../assets/icons/unchecked.svg";
 
 // data
 import { problemList } from "../data/problemList";
@@ -11,6 +9,8 @@ import { problemList } from "../data/problemList";
 const Problems = () => {
   const [curRating, setCurRating] = useState(800);
   const [problems, setProblems] = useState(problemList[curRating].problems);
+
+  console.log(curRating, problemList[curRating].totSolvedCnt);
 
   const changeCurRating = (e) => {
     localStorage.setItem("curRating", e.target.innerText);
@@ -25,6 +25,7 @@ const Problems = () => {
         ...updatedProblems[idx],
         isSolved: !updatedProblems[idx].isSolved,
       };
+
       return updatedProblems;
     });
   };
