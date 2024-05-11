@@ -1,0 +1,56 @@
+.profile {
+  display: flex;
+  width: fit-content;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-top: 5em;
+  padding: 2em;
+  gap: 3em;
+  font-size: 20px;
+}
+
+.profile img {
+  max-width: 600px;
+  max-height: 300px;
+  object-fit: contain;
+  align-self: flex-start;
+  /* margin-top: 2em; */
+}
+
+.profile img,
+.profile_description {
+  width: 50%;
+}
+
+.profile__description__current-rank {
+  text-transform: capitalize;
+  font-size: 1.3em;
+  margin: 0;
+  padding: 0;
+}
+
+.profile__description__user-name {
+  margin: 0;
+  padding: 0;
+  font-size: 3.5rem;
+}
+
+.profile__description__city,
+.profile__description__orgization {
+  margin: 0;
+  padding: 0;
+}
+
+.profile__description__city {
+  margin-top: 1em;
+}
+
+.profile__description__organization {
+  margin-bottom: 2em;
+}
+
+.profile__description__details {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}

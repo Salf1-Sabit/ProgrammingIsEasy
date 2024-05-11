@@ -11,7 +11,7 @@ import Problems from "./pages/Problems";
 import Blogs from "./pages/Blogs";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Profile from "./pages/Profile";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (

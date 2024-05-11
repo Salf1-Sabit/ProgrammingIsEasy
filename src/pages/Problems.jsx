@@ -10,8 +10,6 @@ const Problems = () => {
   const [curRating, setCurRating] = useState(800);
   const [problems, setProblems] = useState(problemList[curRating].problems);
 
-  console.log(curRating, problemList[curRating].totSolvedCnt);
-
   const changeCurRating = (e) => {
     localStorage.setItem("curRating", e.target.innerText);
     setCurRating(parseInt(e.target.innerText));
