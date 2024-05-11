@@ -12,14 +12,16 @@
 }
 
 .problems__ratings-row {
+  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   display: flex;
   width: 60%;
   max-width: 700px;
   margin: 0 auto;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  gap: 0.8em;
 }
 
 .problems__ratings-row button {
@@ -35,4 +37,85 @@
 
 .problems__ratings-row button:focus {
   border: 4px solid var(--blue-border);
+}
+
+.problems__progress-bar {
+  position: relative;
+  width: 60%;
+  height: 36px;
+  margin: 1em auto;
+  max-width: 900px;
+  background-color: var(--gray-bg-dark);
+  border: 1px solid var(--gray-border-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.problems__progress-bar__fill {
+  height: 100%;
+  background-color: var(--green-dark);
+  border-radius: 10px;
+  bottom: 0;
+}
+
+.problems__progress-bar > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  font-size: 1.4rem;
+}
+
+.problems__progress-bar__text {
+  z-index: 1;
+}
+
+.problems__problems-list {
+  background-color: var(--gray-bg-light);
+  border: 1px solid var(--gray-border-light);
+  width: 75%;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.7em;
+  margin-bottom: 3em;
+}
+
+.problems__problems-list .list-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.problems__problems-list .list-row .list-col {
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.problems__problems-list .list-row .list-col:nth-child(1) {
+  width: 6%;
+}
+
+.problems__problems-list .list-row .list-col:nth-child(2) {
+  width: 75%;
+}
+
+.problems__problems-list .list-row .list-col:nth-child(3),
+.problems__problems-list .list-row .list-col:nth-child(4) {
+  width: 8%;
+}
+
+.problems__problems-list .list-row .list-col {
+  background-color: var(--blue-bg-light);
+}
+
+.problems__problems-list .list-row:not(:first-child) .list-col {
+  background-color: #fff;
 }
