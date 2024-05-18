@@ -68,7 +68,16 @@ const Profile = () => {
                   className="profile__description__user-name"
                   style={{ color: `${RANK_COLOR[user.rank]}` }}
                 >
-                  {user.handle}
+                  <span
+                    style={{
+                      color: `${
+                        user.rank === "legendary grandmaster" && "#000"
+                      }`,
+                    }}
+                  >
+                    {user.handle.substring(0, 1)}
+                  </span>
+                  <span>{user.handle.substring(1, user.handle.length)}</span>
                 </h1>
                 <p className="profile__description__city">
                   <span
