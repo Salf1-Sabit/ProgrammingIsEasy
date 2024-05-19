@@ -29,7 +29,7 @@ const Profile = () => {
 
   const { handleSnackbarClick } = React.useContext(SnackbarContext);
 
-  const getUser = () => {
+  const getUser = async () => {
     if (userName === "") {
       handleSnackbarClick(
         "Empty handles are not allowed. Please try again.",
@@ -38,45 +38,27 @@ const Profile = () => {
       return;
     }
 
-    let isValidCall = axios
-      .get(
+    try {
+      // Fetch user info
+      const userInfoResponse = await axios.get(
         `https://codeforces.com/api/user.info?handles=${userName}&checkHistoricHandles=false`
-      )
-      .then((response) => {
-        setUser(response.data.result[0]);
-        return true;
-      })
-      .catch((error) => {
-        return false;
-      });
+      );
+      setUser(userInfoResponse.data.result[0]);
 
-    if (!isValidCall) {
+      // Fetch user rating
+      const userRatingResponse = await axios.get(
+        `https://codeforces.com/api/user.rating?handle=${userName}`
+      );
+      setTotalContest(userRatingResponse.data.result.length);
+
+      // If both calls were successful
+      handleSnackbarClick("Profile added successfully", "success");
+    } catch (error) {
       handleSnackbarClick(
         "Sorry, the username is not correct. Please try again",
         "error"
       );
-      return;
     }
-
-    isValidCall = axios
-      .get(`https://codeforces.com/api/user.rating?handle=${userName}`)
-      .then((response) => {
-        setTotalContest(response.data.result.length);
-        return true;
-      })
-      .catch((error) => {
-        return false;
-      });
-
-    if (!isValidCall) {
-      handleSnackbarClick(
-        "Sorry, the username is not correct. Please try again",
-        "error"
-      );
-      return;
-    }
-
-    handleSnackbarClick("Profile added sucessfully", "success");
   };
 
   return (

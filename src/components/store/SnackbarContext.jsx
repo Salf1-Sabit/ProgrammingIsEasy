@@ -21,6 +21,7 @@ const SnackbarContextProvider = (props) => {
   const [snackbarSeverity, setSnackbarSeverity] = useState("warning");
 
   const handleSnackbarClick = (newMessage, newSeverity) => {
+    setisSnackbarOpen(false);
     setSnackbarMessage(newMessage);
     setSnackbarSeverity(newSeverity);
     setisSnackbarOpen(true);
