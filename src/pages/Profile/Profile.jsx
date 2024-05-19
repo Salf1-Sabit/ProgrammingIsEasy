@@ -157,6 +157,7 @@ const Profile = () => {
                   setUserName("");
                   setUser("");
                 }}
+                style={{ cursor: "pointer" }}
               >
                 Remove Profile
               </button>
@@ -174,7 +175,11 @@ const Profile = () => {
                 placeholder="example: tourist"
                 onChange={(event) => setUserName(event.target.value)}
               />
-              <button className="add-profile-button" onClick={getUser}>
+              <button
+                className="add-profile-button"
+                onClick={getUser}
+                style={{ cursor: "pointer" }}
+              >
                 Add Profile
               </button>
             </div>
