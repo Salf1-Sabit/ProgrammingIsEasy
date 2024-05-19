@@ -121,7 +121,7 @@ const Profile = () => {
                   >
                     {user.city}
                   </span>
-                  ,{" "}
+                  {user.city && user.country && <span>, </span>}
                   <span
                     style={{ color: "#0F0FCF", textDecoration: "underline" }}
                   >
@@ -129,14 +129,16 @@ const Profile = () => {
                   </span>
                 </p>
 
-                <p className="profile__description__organization">
-                  From{" "}
-                  <span
-                    style={{ color: "#0F0FCF", textDecoration: "underline" }}
-                  >
-                    {user.organization}
-                  </span>
-                </p>
+                {user.organization && (
+                  <p className="profile__description__organization">
+                    From{" "}
+                    <span
+                      style={{ color: "#0F0FCF", textDecoration: "underline" }}
+                    >
+                      {user.organization}
+                    </span>
+                  </p>
+                )}
 
                 <p className="profile__description__details">
                   <img
