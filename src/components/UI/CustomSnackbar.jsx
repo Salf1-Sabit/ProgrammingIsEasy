@@ -10,7 +10,6 @@ export default function CustomizedSnackbar() {
     snackbarSeverity,
     snackbarMessage,
     isSnackbarOpen,
-    handleSnackbarClick,
     handleSnackbarClose,
   } = React.useContext(SnackbarContext);
 
@@ -21,7 +20,7 @@ export default function CustomizedSnackbar() {
       onClose={handleSnackbarClose}
     >
       <Alert
-        onClose={handleSnackbarClick}
+        onClose={handleSnackbarClose}
         severity={snackbarSeverity}
         variant="filled"
         sx={{ width: "100%" }}

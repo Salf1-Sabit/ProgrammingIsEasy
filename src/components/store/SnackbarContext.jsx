@@ -27,7 +27,10 @@ const SnackbarContextProvider = (props) => {
     setisSnackbarOpen(true);
   };
 
-  const handleSnackbarClose = () => {
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
     setisSnackbarOpen(false);
   };
 
