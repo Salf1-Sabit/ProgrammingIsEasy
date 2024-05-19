@@ -7,6 +7,7 @@ import "../assets/styles/Problems.css";
 import { problemList } from "../data/problemList";
 
 const Problems = () => {
+  const [totSolvedCnt, setTotSolvedCnt] = useState(0);
   const [curRating, setCurRating] = useState(800);
   const [problems, setProblems] = useState(problemList[curRating].problems);
 
@@ -22,6 +23,21 @@ const Problems = () => {
       updatedProblems[idx] = {
         ...updatedProblems[idx],
         isSolved: !updatedProblems[idx].isSolved,
+      };
+      setTotSolvedCnt(
+        (prevSolvedCnt) =>
+          prevSolvedCnt + (updatedProblems[idx].isSolved === false ? -1 : 1)
+      );
+      return updatedProblems;
+    });
+  };
+
+  const toggleIsBookmarked = (idx) => {
+    setProblems((prevProblems) => {
+      const updatedProblems = [...prevProblems];
+      updatedProblems[idx] = {
+        ...updatedProblems[idx],
+        isBookmarked: !updatedProblems[idx].isBookmarked,
       };
 
       return updatedProblems;
@@ -166,10 +182,10 @@ const Problems = () => {
         <div
           className="problems__progress-bar__fill"
           style={{
-            width: `calc(100% / 30 * ${problemList[curRating].totSolvedCnt})`,
+            width: `calc(100% / 30 * ${totSolvedCnt})`,
           }}
         ></div>
-        <span>0/30 Solved</span>
+        <span>{totSolvedCnt}/30 Solved</span>
       </div>
 
       <div className="problems__problems-list">
@@ -259,6 +275,8 @@ const Problems = () => {
                     height="25"
                     fill="#0068F9"
                     viewBox="0 0 24 24"
+                    onClick={() => toggleIsBookmarked(idx)}
+                    style={{ cursor: "pointer" }}
                   >
                     <path d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1zm3 7v2h8V9H8z"></path>
                   </svg>
@@ -269,6 +287,8 @@ const Problems = () => {
                     height="25"
                     fill="currentColor"
                     viewBox="0 0 24 24"
+                    onClick={() => toggleIsBookmarked(idx)}
+                    style={{ cursor: "pointer" }}
                   >
                     <path d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1zm13 2H6v15.432l6-3.761 6 3.761V4zM8 9h8v2H8V9z"></path>
                   </svg>
