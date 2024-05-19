@@ -38,29 +38,45 @@ const Profile = () => {
       return;
     }
 
-    axios
+    let isValidCall = axios
       .get(
         `https://codeforces.com/api/user.info?handles=${userName}&checkHistoricHandles=false`
       )
       .then((response) => {
         setUser(response.data.result[0]);
+        return true;
       })
       .catch((error) => {
-        handleSnackbarClick(
-          "Sorry, the username is not correct. Please try again.",
-          "error"
-        );
-        return;
+        return false;
       });
 
-    axios
+    if (!isValidCall) {
+      handleSnackbarClick(
+        "Sorry, the username is not correct. Please try again",
+        "error"
+      );
+      return;
+    }
+
+    isValidCall = axios
       .get(`https://codeforces.com/api/user.rating?handle=${userName}`)
       .then((response) => {
         setTotalContest(response.data.result.length);
+        return true;
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        return false;
       });
+
+    if (!isValidCall) {
+      handleSnackbarClick(
+        "Sorry, the username is not correct. Please try again",
+        "error"
+      );
+      return;
+    }
+
+    handleSnackbarClick("Profile added sucessfully", "success");
   };
 
   return (
@@ -173,10 +189,7 @@ const Profile = () => {
                 onClick={() => {
                   setUserName("");
                   setUser("");
-                  handleSnackbarClick(
-                    "Profile removed sucessfully.",
-                    "success"
-                  );
+                  handleSnackbarClick("Profile removed sucessfully", "success");
                 }}
                 style={{ cursor: "pointer" }}
               >
@@ -198,7 +211,9 @@ const Profile = () => {
               />
               <button
                 className="add-profile-button"
-                onClick={getUser}
+                onClick={() => {
+                  getUser();
+                }}
                 style={{ cursor: "pointer" }}
               >
                 Add Profile
