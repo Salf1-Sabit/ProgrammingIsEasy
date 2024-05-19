@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import RatingIcon from "../../assets/icons/ranking.png";
 import ContributionIcon from "../../assets/icons/contribution.png";
 import FriendsIcon from "../../assets/icons/contacts.png";
@@ -26,10 +26,11 @@ const Profile = () => {
   const [user, setUser] = useState(null);
   const [totalContest, setTotalContest] = useState(null);
   const [userName, setUserName] = useState("");
+  const inputRef = useRef(null);
 
   const { handleSnackbarClick } = React.useContext(SnackbarContext);
 
-  const getUser = async () => {
+  const getUser = useCallback(async () => {
     if (userName === "") {
       handleSnackbarClick(
         "Empty handles are not allowed. Please try again.",
@@ -59,7 +60,27 @@ const Profile = () => {
         "error"
       );
     }
-  };
+  }, [userName, handleSnackbarClick]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Enter") {
+        getUser();
+      }
+    };
+
+    const curInputRef = inputRef.current;
+
+    if (curInputRef) {
+      curInputRef.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      if (curInputRef) {
+        curInputRef.removeEventListener("keydown", handleKeyDown);
+      }
+    };
+  }, [userName, getUser]);
 
   return (
     <>
@@ -190,6 +211,7 @@ const Profile = () => {
                 type="text"
                 placeholder="example: tourist"
                 onChange={(event) => setUserName(event.target.value)}
+                ref={inputRef}
               />
               <button
                 className="add-profile-button"
