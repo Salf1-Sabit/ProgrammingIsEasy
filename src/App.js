@@ -12,12 +12,17 @@ import Blogs from "./pages/Blogs";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile/Profile";
+import CustomizedSnackbar from "./components/UI/CustomSnackbar";
+
+// context
+import SnackbarContextProvider from "././components/store/SnackbarContext";
 
 function App() {
   return (
-    <div>
+    <SnackbarContextProvider>
       <BrowserRouter>
         <Navbar />
+        <CustomizedSnackbar />
         <Routes>
           <Route index path="/" element={<Home />} />
           <Route path="/roadmap" element={<Roadmap />} />
@@ -28,7 +33,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </SnackbarContextProvider>
   );
 }
 

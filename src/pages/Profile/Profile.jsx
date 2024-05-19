@@ -6,6 +6,9 @@ import FriendsIcon from "../../assets/icons/contacts.png";
 import ContestIcon from "../../assets/icons/achievement.png";
 import "./profile.css";
 
+// context
+import { SnackbarContext } from "../../components/store/SnackbarContext";
+
 const RANK_COLOR = {
   newbie: "#808080",
   pupil: "#008000",
@@ -24,7 +27,17 @@ const Profile = () => {
   const [totalContest, setTotalContest] = useState(null);
   const [userName, setUserName] = useState("");
 
+  const { handleSnackbarClick } = React.useContext(SnackbarContext);
+
   const getUser = () => {
+    if (userName === "") {
+      handleSnackbarClick(
+        "Empty handles are not allowed. Please try again.",
+        "warning"
+      );
+      return;
+    }
+
     axios
       .get(
         `https://codeforces.com/api/user.info?handles=${userName}&checkHistoricHandles=false`
@@ -33,7 +46,11 @@ const Profile = () => {
         setUser(response.data.result[0]);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        handleSnackbarClick(
+          "Sorry, the username is not correct. Please try again.",
+          "error"
+        );
+        return;
       });
 
     axios
@@ -156,6 +173,10 @@ const Profile = () => {
                 onClick={() => {
                   setUserName("");
                   setUser("");
+                  handleSnackbarClick(
+                    "Profile removed sucessfully.",
+                    "success"
+                  );
                 }}
                 style={{ cursor: "pointer" }}
               >
