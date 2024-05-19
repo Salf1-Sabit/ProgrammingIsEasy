@@ -87,6 +87,13 @@
 .profile__handle-input {
   padding: 0.3em;
   font-size: 1.1rem;
+  border-radius: 5px;
+  border: 2px solid var(--gray-border-light);
+}
+
+.profile__handle-input:focus {
+  border: 2px solid var(--blue-border);
+  outline: 4px solid var(--blue-input-outline);
 }
 
 .profile__default-page {
