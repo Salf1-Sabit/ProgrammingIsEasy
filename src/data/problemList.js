@@ -1,4 +1,4 @@
-export const problemList = {
+export const defaultProblemList = {
   800: {
     totSolvedCnt: 0,
     problems: [

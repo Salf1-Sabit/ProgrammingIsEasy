@@ -4,43 +4,71 @@ import React, { useEffect, useState } from "react";
 import "../assets/styles/Problems.css";
 
 // data
-import { problemList } from "../data/problemList";
+import { defaultProblemList } from "../data/problemList";
 
 const Problems = () => {
-  const [totSolvedCnt, setTotSolvedCnt] = useState(0);
   const [curRating, setCurRating] = useState(800);
-  const [problems, setProblems] = useState(problemList[curRating].problems);
+  const [problemList, setProblemList] = useState(defaultProblemList);
 
   const changeCurRating = (e) => {
     localStorage.setItem("curRating", e.target.innerText);
     setCurRating(parseInt(e.target.innerText));
-    setProblems(problemList[parseInt(e.target.innerText)].problems);
   };
 
   const toggleIsSolved = (idx) => {
-    setProblems((prevProblems) => {
-      const updatedProblems = [...prevProblems];
-      updatedProblems[idx] = {
-        ...updatedProblems[idx],
-        isSolved: !updatedProblems[idx].isSolved,
+    setProblemList((prevProblemList) => {
+      // Make a shallow copy of the entire problem list
+      const updatedProblemList = { ...prevProblemList };
+
+      // Make a shallow copy of the problems array for the current rating
+      const problemsCopy = [...updatedProblemList[curRating].problems];
+
+      // Make a shallow copy of the specific problem being updated
+      const problemCopy = { ...problemsCopy[idx] };
+
+      // Toggle the isSolved property
+      problemCopy.isSolved = !problemCopy.isSolved;
+
+      // Update the problems array with the modified problem
+      problemsCopy[idx] = problemCopy;
+
+      // Update the problem list with the new problems array
+      updatedProblemList[curRating] = {
+        ...updatedProblemList[curRating],
+        problems: problemsCopy,
+        totSolvedCnt:
+          updatedProblemList[curRating].totSolvedCnt +
+          (problemCopy.isSolved ? 1 : -1),
       };
-      setTotSolvedCnt(
-        (prevSolvedCnt) =>
-          prevSolvedCnt + (updatedProblems[idx].isSolved === false ? -1 : 1)
-      );
-      return updatedProblems;
+
+      return updatedProblemList;
     });
   };
 
   const toggleIsBookmarked = (idx) => {
-    setProblems((prevProblems) => {
-      const updatedProblems = [...prevProblems];
-      updatedProblems[idx] = {
-        ...updatedProblems[idx],
-        isBookmarked: !updatedProblems[idx].isBookmarked,
+    setProblemList((prevProblemList) => {
+      // Make a shallow copy of the entire problem list
+      const updatedProblemList = { ...prevProblemList };
+
+      // Make a shallow copy of the problems array for the current rating
+      const problemsCopy = [...updatedProblemList[curRating].problems];
+
+      // Make a shallow copy of the specific problem being updated
+      const problemCopy = { ...problemsCopy[idx] };
+
+      // Toggle the isSolved property
+      problemCopy.isBookmarked = !problemCopy.isBookmarked;
+
+      // Update the problems array with the modified problem
+      problemsCopy[idx] = problemCopy;
+
+      // Update the problem list with the new problems array
+      updatedProblemList[curRating] = {
+        ...updatedProblemList[curRating],
+        problems: problemsCopy,
       };
 
-      return updatedProblems;
+      return updatedProblemList;
     });
   };
 
@@ -182,10 +210,10 @@ const Problems = () => {
         <div
           className="problems__progress-bar__fill"
           style={{
-            width: `calc(100% / 30 * ${totSolvedCnt})`,
+            width: `calc(100% / 30 * ${problemList[curRating].totSolvedCnt})`,
           }}
         ></div>
-        <span>{totSolvedCnt}/30 Solved</span>
+        <span>{problemList[curRating].totSolvedCnt}/30 Solved</span>
       </div>
 
       <div className="problems__problems-list">
@@ -196,9 +224,9 @@ const Problems = () => {
           <div className="list-col">Revisit</div>
         </div>
 
-        {problems.map((problem, idx) => {
+        {problemList[curRating].problems.map((problem, idx) => {
           return (
-            <div className="list-row">
+            <div className="list-row" key={curRating + idx}>
               <div
                 className="list-col"
                 style={{
@@ -236,7 +264,7 @@ const Problems = () => {
               >
                 {problem.isSolved ? (
                   <svg
-                    class="remixicon-icon "
+                    className="remixicon-icon "
                     width="25"
                     height="25"
                     fill="currentColor"
@@ -248,7 +276,7 @@ const Problems = () => {
                   </svg>
                 ) : (
                   <svg
-                    class="remixicon-icon "
+                    className="remixicon-icon "
                     width="25"
                     height="25"
                     fill="currentColor"
@@ -270,7 +298,7 @@ const Problems = () => {
               >
                 {problem.isBookmarked ? (
                   <svg
-                    class="remixicon-icon "
+                    className="remixicon-icon "
                     width="25"
                     height="25"
                     fill="#0068F9"
@@ -282,7 +310,7 @@ const Problems = () => {
                   </svg>
                 ) : (
                   <svg
-                    class="remixicon-icon "
+                    className="remixicon-icon "
                     width="25"
                     height="25"
                     fill="currentColor"
