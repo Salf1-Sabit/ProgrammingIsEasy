@@ -5,12 +5,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 // pages
-import Home from "./pages/Home";
+import Home from "./components/Home/Home";
 import Roadmap from "./pages/Roadmap/Roadmap";
 import Problems from "./pages/Problems";
 import Blogs from "./pages/Blogs";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+import Signup from "./components/SignUp/Signup";
+import Login from "./components/Login/Login";
 import Profile from "./pages/Profile/Profile";
 import CustomizedSnackbar from "./components/UI/CustomSnackbar";
 
