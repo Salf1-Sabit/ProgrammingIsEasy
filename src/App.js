@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 
 // pages
 import Home from "./pages/Home";
-import Roadmap from "./pages/Roadmap";
+import Roadmap from "./pages/Roadmap/Roadmap";
 import Problems from "./pages/Problems";
 import Blogs from "./pages/Blogs";
 import Signup from "./pages/Signup";
