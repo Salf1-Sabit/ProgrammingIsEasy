@@ -26,7 +26,7 @@
 }
 
 .navbar .nav-container .middle-links {
-  gap: min(3em, 3vw);
+  gap: min(2em, 2vw);
 }
 
 .navbar .nav-container .right-links {
@@ -58,7 +58,7 @@
   font-weight: 400;
 }
 
-.active {
+.navbar .active {
   border-bottom: 2px solid #fff;
   padding-bottom: 4px;
   font-weight: 500;

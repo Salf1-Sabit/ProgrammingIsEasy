@@ -1,0 +1,9 @@
+.roadmap-outer-container {
+  padding: 0 1em;
+}
+
+.roadmap-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+}

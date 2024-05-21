@@ -222,7 +222,7 @@ const Profile = () => {
                 }}
                 style={{ cursor: "pointer" }}
               >
-                Add Profile
+                Save Profile
               </button>
             </div>
           </div>

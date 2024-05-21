@@ -1,0 +1,48 @@
+.roadmap__data-container {
+  width: 73%;
+  padding-left: 2em;
+}
+
+.roadmap__data-container h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  margin-top: 2em;
+  cursor: pointer;
+}
+
+.roadmap__data-container h3:hover {
+  text-decoration: underline;
+}
+
+.roadmap__data-container ul {
+  list-style: none;
+  font-size: 1rem;
+  margin-top: 0;
+  cursor: pointer;
+  padding-left: 0;
+}
+
+.roadmap__data-container ul li {
+  margin-bottom: 0.3em;
+  padding: 0.3em 0.3em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.roadmap__data-container ul li:hover {
+  background-color: #edeff0;
+}
+
+.roadmap__data-container .checked-icon-container {
+  background-color: #edeff0;
+}
+
+.roadmap__data-container li:hover .checked-icon-container {
+  background-color: #fff;
+}
+
+.roadmap__data-actions {
+  background-color: pink;
+}
