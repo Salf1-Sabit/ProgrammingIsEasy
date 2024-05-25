@@ -1,0 +1,32 @@
+.home-container {
+  height: calc(100vh - 60px);
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.blurred-circle {
+  height: 35vw;
+  width: 35vw;
+  border-radius: 50%;
+  position: absolute;
+  z-index: -1;
+  filter: blur(100px);
+  background: linear-gradient(to bottom right, #1fa2ff, #12d8fa, #a6ffcb);
+}
+
+.blurred-circle:nth-child(1) {
+  right: -22vw;
+  top: -5vw;
+}
+
+.blurred-circle:nth-child(2) {
+  left: -22vw;
+  bottom: -15vw;
+}
+
+.home-heading {
+  font-weight: 400;
+  font-size: 3.5rem;
+  margin: 0;
+}
