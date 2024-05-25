@@ -6,10 +6,12 @@ import UnCheckedIcon from "../../../assets/icons/unchecked.svg";
 import CheckedIcon from "../../../assets/icons/checked.svg";
 import { NavLink } from "react-router-dom";
 
-const RoadmapData = ({ curRoadmapData, curSection }) => {
+const RoadmapData = ({ curRoadmapData, curSection, curLevel }) => {
   return (
     <div className="roadmap__data-container">
-      <h2>{curSection}</h2>
+      <h2>
+        {curSection} | {curLevel}
+      </h2>
       <h3>Theory </h3>
       <ul>
         {curRoadmapData.Theory.map((theory) => (

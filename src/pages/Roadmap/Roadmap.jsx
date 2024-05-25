@@ -42,7 +42,11 @@ const Roadmap = () => {
           curLevel={curLevel}
           setCurRoadmapData={setCurRoadmapData}
         />
-        <RoadmapData curRoadmapData={curRoadmapData} curSection={curSection} />
+        <RoadmapData
+          curRoadmapData={curRoadmapData}
+          curSection={curSection}
+          curLevel={curLevel}
+        />
       </div>
     </div>
   );
