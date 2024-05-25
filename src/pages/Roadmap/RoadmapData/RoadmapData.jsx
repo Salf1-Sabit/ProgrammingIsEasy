@@ -1,9 +1,10 @@
 import React from "react";
 import "./RoadmapData.css";
-import CheckedIcon from "../../../components/UI/CheckedIcon";
-// import LeftArrowIcon from "../../../components/UI/LeftArraowIcon";
-// import RightArrowIcon from "../../../components/UI/RightArrowIcon";
-// import UncheckedIcon from "../../../components/UI/UncheckedIcon";
+import LinkIcon from "../../../assets/icons/link.png";
+import ProblemIcon from "../../../assets/icons/problem.png";
+import UnCheckedIcon from "../../../assets/icons/unchecked.svg";
+import CheckedIcon from "../../../assets/icons/checked.svg";
+import { NavLink } from "react-router-dom";
 
 const RoadmapData = ({ curRoadmapData, curSection }) => {
   return (
@@ -25,9 +26,18 @@ const RoadmapData = ({ curRoadmapData, curSection }) => {
               }}
               className="checked-icon-container"
             >
-              <CheckedIcon />
+              <img src={LinkIcon} alt="" height={"16px"} />
             </span>
-            <span>{theory.title}</span>
+            <span>
+              <a
+                href={theory.link}
+                target="_blank"
+                rel="noreferrer"
+                className="text-link"
+              >
+                {theory.title}{" "}
+              </a>
+            </span>
           </li>
         ))}
       </ul>
@@ -47,24 +57,27 @@ const RoadmapData = ({ curRoadmapData, curSection }) => {
               }}
               className="checked-icon-container"
             >
-              <CheckedIcon />
+              <img src={ProblemIcon} alt="" height={"18px"} />
             </span>
-            <span>{problem.title}</span>
+            <span>
+              {curSection === "Get Started with Codeforces" ? (
+                <NavLink to={"/problems"} className="text-link">
+                  {problem.title}
+                </NavLink>
+              ) : (
+                <a
+                  href={problem.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-link"
+                >
+                  {problem.title}{" "}
+                </a>
+              )}
+            </span>
           </li>
         ))}
       </ul>
-
-      {/* <div className="roadmap__data-actions">
-        <span className="arrow-icons-container">
-          <LeftArrowIcon />
-        </span>
-        <span className="arrow-icons-container">
-          <RightArrowIcon />
-        </span>
-        <span>
-          <UncheckedIcon /> Complete
-        </span>
-      </div> */}
     </div>
   );
 };

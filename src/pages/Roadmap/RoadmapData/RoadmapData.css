@@ -33,6 +33,7 @@
 
 .roadmap__data-container ul li:hover {
   background-color: #edeff0;
+  text-decoration: underline;
 }
 
 .roadmap__data-container .checked-icon-container {
@@ -45,4 +46,9 @@
 
 .roadmap__data-actions {
   background-color: pink;
+}
+
+.roadmap__data-container .text-link {
+  text-decoration: none;
+  color: #000;
 }
