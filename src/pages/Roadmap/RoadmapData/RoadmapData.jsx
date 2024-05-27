@@ -2,8 +2,6 @@ import React from "react";
 import "./RoadmapData.css";
 import LinkIcon from "../../../assets/icons/link.png";
 import ProblemIcon from "../../../assets/icons/problem.png";
-import UnCheckedIcon from "../../../assets/icons/unchecked.svg";
-import CheckedIcon from "../../../assets/icons/checked.svg";
 import { NavLink } from "react-router-dom";
 
 const RoadmapData = ({ curRoadmapData, curSection, curLevel }) => {
