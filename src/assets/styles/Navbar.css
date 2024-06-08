@@ -1,6 +1,5 @@
 .brand-logo {
   font-weight: 500;
-  font-size: 20px;
   font-family: var(--ff-logo);
 }
 
@@ -20,11 +19,6 @@
   align-items: center;
 }
 
-.navbar .nav-container > ul {
-  display: flex;
-  list-style: none;
-}
-
 .navbar .nav-container .middle-links {
   gap: min(2em, 2vw);
 }
@@ -41,7 +35,6 @@
 .navbar .login-button,
 .navbar .signup-button {
   font-weight: 500;
-  padding: 0.4em 1em;
   border-radius: 5px;
 }
 
@@ -60,6 +53,6 @@
 
 .navbar .active {
   border-bottom: 2px solid #fff;
-  padding-bottom: 4px;
+  padding-bottom: 0.2em;
   font-weight: 500;
 }

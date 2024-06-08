@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/styles/Navbar.css";
 import { NavLink } from "react-router-dom";
+import MenuIcon from "../assets/icons/menu.png";
+import CloseIcon from "../assets/icons/close.png";
+import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
-  return (
-    <header className="navbar">
-      <div className="nav-container">
-        <div className="brand-logo">ProgrammingIsEasy.com</div>
+  const [isMobileNavbarOpen, setIsMobileNavbarOpen] = useState(false);
 
-        <ul className="middle-links">
+  const handleMobileNavbarOpen = () => {
+    setIsMobileNavbarOpen(true);
+  };
+
+  const handleMobileNavbarClose = () => {
+    setIsMobileNavbarOpen(false);
+  };
+
+  useEffect(() => {
+    if (isMobileNavbarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isMobileNavbarOpen]);
+
+  return (
+    <header className="navbar p-2 sm:p-3 md:p-4 ">
+      <div className="nav-container relative">
+        <div className="brand-logo text-base sm:text-lg md:text-xl ">
+          ProgrammingIsEasy.com
+        </div>
+
+        <ul className="middle-links hidden lg:flex">
           <li>
             <NavLink to="/">
               <span>Home</span>
@@ -28,23 +51,46 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <ul className="right-links">
+        <ul className="right-links hidden lg:flex">
           <li>
-            <NavLink to="/signup" className="signup-button">
+            <NavLink
+              to="/signup"
+              className="signup-button px-3 sm:px-5 py-1 sm:py-2"
+            >
               Sign up
             </NavLink>
           </li>
           <li>
             <NavLink
               to="/login"
-              className="login-button"
+              className="login-button px-3 sm:px-5 py-1 sm:py-2"
               style={{ color: "#000" }}
             >
               Log in
             </NavLink>
           </li>
         </ul>
+
+        {!isMobileNavbarOpen ? (
+          <div
+            className="lg:hidden w-7 h-7 sm:w-9 sm:h-9"
+            onClick={handleMobileNavbarOpen}
+          >
+            <img src={MenuIcon} alt="menu " />
+          </div>
+        ) : (
+          <div
+            className="lg:hidden w-6 h-6 sm:w-8 sm:h-8"
+            onClick={handleMobileNavbarClose}
+          >
+            <img src={CloseIcon} alt="" />
+          </div>
+        )}
       </div>
+
+      {isMobileNavbarOpen && (
+        <MobileNavbar handleMobileNavbarClose={handleMobileNavbarClose} />
+      )}
     </header>
   );
 };
