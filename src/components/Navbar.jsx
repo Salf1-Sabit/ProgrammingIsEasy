@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "../assets/styles/Navbar.css";
 import { NavLink } from "react-router-dom";
+
+import UserIcon from "../assets/icons/user.png";
 import MenuIcon from "../assets/icons/menu.png";
 import CloseIcon from "../assets/icons/close.png";
+
 import MobileNavbar from "./MobileNavbar";
+import getLoginStatus from "../utils/getLoginStatus";
 
 const Navbar = () => {
+  const isLoggedIn = getLoginStatus();
   const [isMobileNavbarOpen, setIsMobileNavbarOpen] = useState(false);
 
   const handleMobileNavbarOpen = () => {
@@ -44,32 +49,42 @@ const Navbar = () => {
             <NavLink to="/problems">Problems</NavLink>
           </li>
           <li>
-            <NavLink to="/blogs">Blogs</NavLink>
+            <NavLink to="/contests">Contests</NavLink>
           </li>
           <li>
-            <NavLink to="/profile">Profile</NavLink>
+            <NavLink to="/blogs">Blogs</NavLink>
           </li>
         </ul>
 
-        <ul className="right-links hidden lg:flex">
-          <li>
-            <NavLink
-              to="/signup"
-              className="signup-button px-3 sm:px-5 py-1 sm:py-2"
-            >
-              Sign up
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/login"
-              className="login-button px-3 sm:px-5 py-1 sm:py-2"
-              style={{ color: "#000" }}
-            >
-              Log in
-            </NavLink>
-          </li>
-        </ul>
+        {isLoggedIn && (
+          <NavLink
+            className="w-6 h-6 lg:w-8 lg:h-8 cursor-pointer hidden lg:block ring-4 rounded-full"
+            to="/profile"
+          >
+            <img src={UserIcon} alt="user" />
+          </NavLink>
+        )}
+        {!isLoggedIn && (
+          <ul className="right-links hidden lg:flex">
+            <li>
+              <NavLink
+                to="/signup"
+                className="signup-button px-3 sm:px-5 py-1 sm:py-2"
+              >
+                Sign up
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/signin"
+                className="login-button px-3 sm:px-5 py-1 sm:py-2"
+                style={{ color: "#000" }}
+              >
+                Log in
+              </NavLink>
+            </li>
+          </ul>
+        )}
 
         {!isMobileNavbarOpen ? (
           <div

@@ -210,7 +210,7 @@ const Profile = () => {
             </h2>
             <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
               <input
-                className="px-2 sm:px-3 py-1 rounded border-2 border-gray-400 focus:border-blue-500 focus:ring-2"
+                className="px-2 sm:px-3 py-1 rounded border-2 border-gray-400 focus:border-blue-500 focus:ring-2 sm:focus:ring-4"
                 type="text"
                 placeholder="example: tourist"
                 onChange={(event) => setUserName(event.target.value)}

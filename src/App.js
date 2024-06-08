@@ -1,38 +1,15 @@
 import "./assets/styles/index.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-// components
-import Navbar from "./components/Navbar";
-
-// pages
-import Home from "./components/Home/Home";
-import Roadmap from "./pages/Roadmap/Roadmap";
-import Problems from "./pages/Problems";
-import Blogs from "./pages/Blogs/Blogs";
-import Signup from "./components/SignUp/Signup";
-import Login from "./components/Login/Login";
-import Profile from "./pages/Profile/Profile";
-import CustomizedSnackbar from "./components/UI/CustomSnackbar";
+import { RouterProvider } from "react-router-dom";
 
 // context
 import SnackbarContextProvider from "././components/store/SnackbarContext";
 
+import { routes } from "./routes/routes";
+
 function App() {
   return (
     <SnackbarContextProvider>
-      <BrowserRouter>
-        <Navbar />
-        <CustomizedSnackbar />
-        <Routes>
-          <Route index path="/" element={<Home />} />
-          <Route path="/roadmap" element={<Roadmap />} />
-          <Route path="/problems" element={<Problems />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={routes}></RouterProvider>
     </SnackbarContextProvider>
   );
 }
