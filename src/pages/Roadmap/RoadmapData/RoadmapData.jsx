@@ -6,28 +6,19 @@ import { NavLink } from "react-router-dom";
 
 const RoadmapData = ({ curRoadmapData, curSection, curLevel }) => {
   return (
-    <div className="roadmap__data-container">
-      <h2>
+    <div className="roadmap__data-container mt-4 sm:ml-4 md:mt-6 md:ml-6 lg:mt-8 lg:ml-8">
+      <h2 className="font-medium text-xl lg:text-2xl">
         {curSection} | {curLevel}
       </h2>
-      <h3>Theory </h3>
+      <h3 className="font-medium text-base mt-4 md:mt-6 lg:mt-10">Theory </h3>
       <ul>
         {curRoadmapData.Theory.map((theory) => (
           <li>
-            <span
-              style={{
-                borderRadius: "5px",
-                height: "30px",
-                width: "30px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginRight: ".5em",
-              }}
-              className="checked-icon-container"
-            >
-              <img src={LinkIcon} alt="" height={"16px"} />
-            </span>
+            <div className="checked-icon-container rounded bg-gray-400 mr-2 flex justify-center items-center p-2">
+              <div className="w-4 h-4">
+                <img src={LinkIcon} alt="" />
+              </div>
+            </div>
             <span>
               <a
                 href={theory.link}
@@ -41,24 +32,15 @@ const RoadmapData = ({ curRoadmapData, curSection, curLevel }) => {
           </li>
         ))}
       </ul>
-      <h3>Problems </h3>
+      <h3 className="font-medium text-base mt-4 md:mt-6 lg:mt-10">Problems </h3>
       <ul>
         {curRoadmapData.Problems.map((problem) => (
           <li>
-            <span
-              style={{
-                borderRadius: "5px",
-                height: "30px",
-                width: "30px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginRight: ".5em",
-              }}
-              className="checked-icon-container"
-            >
-              <img src={ProblemIcon} alt="" height={"18px"} />
-            </span>
+            <div className="checked-icon-container rounded bg-gray-400 mr-2 flex justify-center items-center p-2">
+              <div className="w-4 h-4">
+                <img src={ProblemIcon} alt="" />
+              </div>
+            </div>
             <span>
               {curSection === "Get Started with Codeforces" ? (
                 <NavLink to={"/problems"} className="text-link">

@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import Roadmap from "./pages/Roadmap/Roadmap";
 import Problems from "./pages/Problems";
-import Blogs from "./pages/Blogs";
+import Blogs from "./pages/Blogs/Blogs";
 import Signup from "./components/SignUp/Signup";
 import Login from "./components/Login/Login";
 import Profile from "./pages/Profile/Profile";

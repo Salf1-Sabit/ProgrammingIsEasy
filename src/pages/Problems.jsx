@@ -250,6 +250,7 @@ const Problems = () => {
                   target="_blank"
                   rel="noreferrer"
                   style={{ color: "var(--blue-link)" }}
+                  className="underline underline-offset-4 font-medium"
                 >
                   {problem.name}
                 </a>

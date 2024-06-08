@@ -4,7 +4,7 @@ import LockedIcon from "../../../components/UI/LockedIcon";
 
 const RoadmapSidebar = ({ curSectionHandler, curSection, curLevel }) => {
   return (
-    <div className="roadmap__sidebar-container">
+    <div className="roadmap__sidebar-container hidden lg:block">
       <h3 onClick={() => curSectionHandler("Learn C++", "Level 1")}>
         Week 1 - 5 | Learn C++
       </h3>
