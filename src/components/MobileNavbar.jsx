@@ -1,11 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ handleMobileNavbarClose }) => {
+  const handleBackdropClick = () => {
+    handleMobileNavbarClose();
+  };
+
+  const handleMobileNavbarClick = (event) => {
+    event.stopPropagation();
+  };
+
   return (
-    <aside className="z-10 flex justify-end absolute lg:hidden top-10 sm:top-[56px] md:top-[64px] right-0 h-screen bg-[#0000004d] w-full">
+    <aside
+      className="z-10 flex justify-end absolute lg:hidden top-10 sm:top-[56px] md:top-[64px] right-0 h-screen bg-[#0000004d] w-full"
+      onClick={handleBackdropClick}
+    >
       <nav
         className={`flex flex-col gap-6 sm:gap-8 text-sm sm:text-lg bg-[#1E76CC] text-white h-full w-[200px] sm:w-[300px] p-4 sm:p-8`}
+        onClick={handleMobileNavbarClick}
       >
         <ul className="middle-links flex flex-col gap-3 sm:gap-4">
           <li>
