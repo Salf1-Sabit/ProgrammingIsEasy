@@ -4,6 +4,7 @@ import RatingIcon from "../../assets/icons/ranking.png";
 import ContributionIcon from "../../assets/icons/contribution.png";
 import FriendsIcon from "../../assets/icons/contacts.png";
 import ContestIcon from "../../assets/icons/achievement.png";
+import Wrapper from "../../components/UI/Wrapper";
 import "./profile.css";
 
 // context
@@ -84,7 +85,7 @@ const Profile = () => {
 
   return (
     <>
-      <div className="profile-container">
+      <div className="profile-container text-sm sm:text-lg">
         {user ? (
           <div className="profile-outer-container">
             <div className="profile">
@@ -203,20 +204,20 @@ const Profile = () => {
             </div>
           </div>
         ) : (
-          <div className="profile__default-page">
-            <h2 className="profile__title">
+          <Wrapper className="flex justify-center items-center flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+            <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-semibold">
               Please enter your Codeforces handle
             </h2>
-            <div className="profile__input-container">
+            <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
               <input
-                className="profile__handle-input"
+                className="px-2 sm:px-3 py-1 rounded border-2 border-gray-400 focus:border-blue-500 focus:ring-2"
                 type="text"
                 placeholder="example: tourist"
                 onChange={(event) => setUserName(event.target.value)}
                 ref={inputRef}
               />
               <button
-                className="add-profile-button"
+                className="bg-[#00D1B2] hover:bg-[#00C4A7] rounded px-3 sm:px-5 py-1 text-white font-medium"
                 onClick={() => {
                   getUser();
                 }}
@@ -225,7 +226,7 @@ const Profile = () => {
                 Save Profile
               </button>
             </div>
-          </div>
+          </Wrapper>
         )}
       </div>
     </>

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import ButtonBlue from "../components/UI/ButtonBlue";
 
 const MobileNavbar = ({ handleMobileNavbarClose }) => {
   const handleBackdropClick = () => {
@@ -41,12 +42,7 @@ const MobileNavbar = ({ handleMobileNavbarClose }) => {
 
         <ul className="right-links flex gap-3 sm:gap-4">
           <li>
-            <NavLink
-              to="/signup"
-              className="signup-button px-3 sm:px-5 py-1 sm:py-2"
-            >
-              Sign up
-            </NavLink>
+            <ButtonBlue text="Sign up" to="signup" />
           </li>
           <li>
             <NavLink
