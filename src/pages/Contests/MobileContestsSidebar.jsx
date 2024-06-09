@@ -73,7 +73,7 @@ const MobileContestsSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
               <li className="">
                 <NavLink
-                  to="/host-contests"
+                  to="/author/contests"
                   className={({ isActive }) =>
                     isActive
                       ? "flex gap-2 items-center p-1 sm:p-2 text-[#1E76CC]"

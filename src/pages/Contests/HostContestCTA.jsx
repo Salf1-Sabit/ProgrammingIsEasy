@@ -15,7 +15,7 @@ const HostContestCTA = () => {
         </p>
         <Button
           text="Create Contests"
-          to="/host-contests"
+          to="/author/contests"
           className="py-2 w-fit mx-auto"
         />
       </div>

@@ -27,7 +27,7 @@ const PastContests = () => {
         status="Finished"
       />
       <ContestCard
-        title="UITS Victory Day Contest"
+        title="UITS Victory Day Contest 2023 (Revisited)"
         sheduledTime="June 7, 2024 at 8:41 AM"
         visibility="Protected"
         status="Finished"
