@@ -30,7 +30,7 @@ const Navbar = () => {
   }, [isMobileNavbarOpen]);
 
   return (
-    <header className="navbar p-2 sm:p-3 md:p-4 ">
+    <header className="navbar p-2 sm:p-3 md:p-4">
       <div className="nav-container relative">
         <div className="brand-logo text-base sm:text-lg md:text-xl ">
           ProgrammingIsEasy.com

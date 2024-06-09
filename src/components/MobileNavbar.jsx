@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import ButtonBlue from "../components/UI/ButtonBlue";
+import Button from "../components/UI/Button";
 
 import getLoginStatus from "../utils/getLoginStatus";
 
@@ -58,7 +58,7 @@ const MobileNavbar = ({ handleMobileNavbarClose }) => {
         {!isLoggedIn && (
           <ul className="right-links flex gap-3 sm:gap-4">
             <li>
-              <ButtonBlue text="Sign up" to="signup" />
+              <Button text="Sign up" to="signup" />
             </li>
             <li>
               <NavLink
