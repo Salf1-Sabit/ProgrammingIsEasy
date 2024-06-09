@@ -9,7 +9,7 @@ const ContestsSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           !isSidebarOpen && "hidden"
         }`}
       >
-        <div className="relative h-screen bg-white pt-4 border-r border-gray-200">
+        <div className="relative h-screen bg-white pt-4">
           <ul className="flex flex-col">
             <li>
               <NavLink

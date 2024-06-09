@@ -1,6 +1,5 @@
 import React from "react";
 import "../assets/styles/Home.css";
-import { RiBracesLine } from "@remixicon/react";
 
 const Home = () => {
   return (
