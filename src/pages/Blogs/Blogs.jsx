@@ -6,7 +6,7 @@ import Blog from "./Blog";
 
 const Blogs = () => {
   return (
-    <div className="bg-white mt-4 lg:mt-8 text-sm sm:text-base">
+    <div className="bg-white my-4 lg:my-8 text-sm sm:text-base">
       <Wrapper className="flex flex-col gap-3 sm:gap-4 md:gap-5">
         <h1 className="flex gap-2 sm:gap-3 items-center text-base sm:text-lg font-medium leading-5">
           <IconContainer>
