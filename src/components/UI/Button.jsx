@@ -5,6 +5,7 @@ const ButtonBlue = ({ className, text, to }) => {
   const handlePropagation = (event) => {
     event.stopPropagation();
   };
+
   return (
     <NavLink
       to={to}

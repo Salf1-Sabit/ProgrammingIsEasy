@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../assets/styles/Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import UserIcon from "../assets/icons/user.png";
 import MenuIcon from "../assets/icons/menu.png";
@@ -11,6 +11,7 @@ import getLoginStatus from "../utils/getLoginStatus";
 
 const Navbar = () => {
   const isLoggedIn = getLoginStatus();
+  const navigate = useNavigate();
   const [isMobileNavbarOpen, setIsMobileNavbarOpen] = useState(false);
 
   const handleMobileNavbarOpen = () => {
@@ -32,16 +33,14 @@ const Navbar = () => {
   return (
     <header className="navbar p-2 sm:p-3 md:p-4">
       <div className="nav-container relative">
-        <div className="brand-logo text-base sm:text-lg md:text-xl ">
+        <div
+          className="brand-logo text-base sm:text-lg md:text-xl cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           ProgrammingIsEasy.com
         </div>
 
         <ul className="middle-links hidden lg:flex">
-          <li>
-            <NavLink to="/">
-              <span>Home</span>
-            </NavLink>
-          </li>
           <li>
             <NavLink to="/roadmap">Roadmap</NavLink>
           </li>
@@ -53,6 +52,11 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to="/blogs">Blogs</NavLink>
+          </li>
+          <li>
+            <NavLink to="/iupc">
+              <span>IUPC</span>
+            </NavLink>
           </li>
         </ul>
 

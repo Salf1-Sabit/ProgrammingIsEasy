@@ -29,11 +29,6 @@ const MobileNavbar = ({ handleMobileNavbarClose }) => {
       >
         <ul className="middle-links flex flex-col gap-3 sm:gap-4">
           <li>
-            <NavLink to="/">
-              <span>Home</span>
-            </NavLink>
-          </li>
-          <li>
             <NavLink to="/roadmap">Roadmap</NavLink>
           </li>
           <li>
@@ -44,6 +39,11 @@ const MobileNavbar = ({ handleMobileNavbarClose }) => {
           </li>
           <li>
             <NavLink to="/blogs">Blogs</NavLink>
+          </li>
+          <li>
+            <NavLink to="/iupc">
+              <span>IUPC</span>
+            </NavLink>
           </li>
         </ul>
 

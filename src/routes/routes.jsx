@@ -16,6 +16,9 @@ import Author from "../pages/Author/Author";
 import AuthorDashboard from "../pages/Author/AuthorDashboard";
 import AuthorProblems from "../pages/Author/AuthorProblems";
 import AuthorContests from "../pages/Author/AuthorContests";
+import IUPC from "../pages/IUPC";
+import UpcomingIUPC from "../pages/IUPC/UpcomingIUPC";
+import PastIUPC from "../pages/IUPC/PastIUPC";
 
 export const routes = createBrowserRouter([
   {
@@ -41,6 +44,14 @@ export const routes = createBrowserRouter([
       { path: "signup", element: <SignUp /> },
       { path: "signin", element: <SignIn /> },
       { path: "dummy-contest", element: <DummyStandings /> },
+      {
+        path: "iupc",
+        element: <IUPC />,
+        children: [
+          { index: true, element: <UpcomingIUPC /> },
+          { path: "past-contests", element: <PastIUPC /> },
+        ],
+      },
       {
         path: "author",
         element: <Author />,
