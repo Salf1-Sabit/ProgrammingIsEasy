@@ -14,7 +14,7 @@ const AuthorProblems = () => {
           <h1 className="font-bold text-lg sm:text-xl md:text-2xl ">
             Problems
           </h1>
-          <button className="bg-[#00D1B2] hover:bg-[#00C4A7] rounded px-3 sm:px-5 py-1 sm:py-2 text-white font-medium flex items-center gap-1 text-[12px] sm:text-sm md:text-base">
+          <button className="bg-[#00D1B2] hover:bg-[#00C4A7] rounded px-3 sm:px-5 py-1 sm:py-2 text-white font-medium flex items-center gap-1 text-[12px] sm:text-sm md:text-base transition-all duration-200">
             <IoIosAddCircleOutline className="text-sm sm:text-base md:text-lg" />{" "}
             Create New Problem
           </button>

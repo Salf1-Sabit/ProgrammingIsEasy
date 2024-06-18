@@ -10,7 +10,7 @@ const ContestCard = ({
   onClickAction,
 }) => {
   return (
-    <div className="border-b border-gray-200 p-6 sm:p-6 md:p-8 lg:p-10 border-r flex flex-col gap-2 sm:gap-3 md:gap-4">
+    <div className="border-b border-gray-200 p-6 sm:p-6 md:p-8 lg:p-10 border-r flex flex-col gap-2 sm:gap-3 md:gap-4 hover:bg-[#EFF5FB] transition-all duration-200">
       <h1
         className="text-[22px] sm:text-2xl lg:text-3xl font-bold leading-6 md:leading-7 cursor-pointer"
         onClick={onClickAction}
