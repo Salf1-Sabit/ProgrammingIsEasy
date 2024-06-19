@@ -1,29 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 // context
 import { SnackbarContext } from "../../components/store/SnackbarContext";
 
-const HostContestForm = () => {
+const SubmitIUPCInfoForm = () => {
   const { handleSnackbarClick } = React.useContext(SnackbarContext);
 
   const [form, setForm] = useState({
     contestTitle: "",
-    maxParticipants: "",
-    participationType: "Individual",
-    startTime: "",
-    endTime: "",
+    registrationFee: "",
+    contestType: "IUPC",
+    scheduledTime: "",
   });
 
   const [isFormValid, setIsFormValid] = useState(false);
 
   useEffect(() => {
-    const { contestTitle, maxParticipants, startTime, endTime } = form;
+    const { contestTitle, registrationFee, scheduledTime } = form;
     setIsFormValid(
       contestTitle.trim() !== "" &&
-        maxParticipants.trim() !== "" &&
-        startTime.trim() !== "" &&
-        endTime.trim() !== ""
+        registrationFee.trim() !== "" &&
+        scheduledTime.trim() !== ""
     );
   }, [form]);
 
@@ -34,18 +31,14 @@ const HostContestForm = () => {
 
   return (
     <>
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+      <dialog
+        id="submitIUPCInfoForm"
+        className="modal modal-bottom sm:modal-middle"
+      >
         <div className="modal-box p-0">
           <h3 className="font-bold text-base md:text-xl border-b p-3 md:p-4 text-gray-700">
-            Create New Contest
+            Submit National Contest Information
           </h3>
-          <p className="text-white bg-[#3E8ED0] rounded mx-3 md:mx-4 mt-3 md:mt-4 p-3 sm:p-4 md:p-5 text-[12px] md:text-sm lg:text-base">
-            By using the contest hosting feature on ProgrammingIsEasy, you are
-            agreeing with our{" "}
-            <Link to="#" className="underline">
-              terms and conditions.
-            </Link>
-          </p>
 
           <form method="dialog" className="p-3 md:p-4">
             <div className="flex flex-col gap-1 sm:gap-2">
@@ -63,62 +56,46 @@ const HostContestForm = () => {
             </div>
 
             <div className="flex flex-col gap-1 sm:gap-2 mt-3 sm:mt-4">
-              <label htmlFor="maxParticipants" className="text-sm md:text-base">
-                Maximum Participants
+              <label htmlFor="registrationFee" className="text-sm md:text-base">
+                Registration Fee
               </label>
               <input
                 type="number"
-                name="maxParticipants"
+                name="registrationFee"
                 min={0}
                 className="border rounded py-1 px-1 sm:px-2 focus:border-[#3E8ED0] transition-all duration-200"
                 required
-                value={form.maxParticipants}
+                value={form.registrationFee}
                 onChange={handleChange}
               />
             </div>
 
             <div className="flex flex-col gap-1 sm:gap-2 mt-3 sm:mt-4">
-              <label
-                htmlFor="participationType"
-                className="text-sm md:text-base"
-              >
-                Contest Participation Type
+              <label htmlFor="contestType" className="text-sm md:text-base">
+                Contest type
               </label>
               <select
-                name="participationType"
+                name="contestType"
                 className="text-sm md:text-base w-fit bg-white border rounded py-1 px-1 sm:px-2 focus:border-[#3E8ED0] transition-all duration-200"
-                value={form.participationType}
+                value={form.contestType}
                 onChange={handleChange}
               >
-                <option value="Individual">Individual</option>
-                <option value="Team">Team</option>
+                <option value="IUPC">IUPC</option>
+                <option value="NCPC">NCPC</option>
+                <option value="ICPC">ICPC</option>
               </select>
             </div>
 
             <div className="flex flex-col gap-1 sm:gap-2 mt-3 sm:mt-4">
-              <label htmlFor="startTime" className="text-sm md:text-base">
-                Contest Start Time
+              <label htmlFor="scheduledTime" className="text-sm md:text-base">
+                Scheduled time
               </label>
               <input
                 type="date"
-                name="startTime"
+                name="scheduledTime"
                 className="text-sm md:text-base border rounded py-1 px-1 sm:px-2 focus:border-[#3E8ED0] transition-all duration-200"
                 required
-                value={form.startTime}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="flex flex-col gap-1 sm:gap-2 mt-3 sm:mt-4">
-              <label htmlFor="endTime" className="text-sm md:text-base">
-                Contest End Time
-              </label>
-              <input
-                type="date"
-                name="endTime"
-                className="text-sm md:text-base border rounded py-1 px-1 sm:px-2 focus:border-[#3E8ED0] transition-all duration-200"
-                required
-                value={form.endTime}
+                value={form.scheduledTime}
                 onChange={handleChange}
               />
             </div>
@@ -127,7 +104,9 @@ const HostContestForm = () => {
               <button
                 type="reset"
                 className="rounded px-3 sm:px-5 py-1 sm:py-2 border font-medium flex items-center gap-1 text-[12px] sm:text-sm md:text-base"
-                onClick={() => document.getElementById("my_modal_5").close()}
+                onClick={() =>
+                  document.getElementById("submitIUPCInfoForm").close()
+                }
               >
                 Close
               </button>
@@ -140,21 +119,20 @@ const HostContestForm = () => {
                 onClick={() => {
                   if (isFormValid) {
                     handleSnackbarClick(
-                      "Contest has been created successfully",
+                      "You've applied for the new national contests info successfully",
                       "success"
                     );
                     setForm({
                       contestTitle: "",
-                      maxParticipants: "",
-                      participationType: "Individual",
-                      startTime: "",
-                      endTime: "",
+                      registrationFee: "",
+                      contestType: "IUPC",
+                      scheduledTime: "",
                     });
-                    document.getElementById("my_modal_5").close();
+                    document.getElementById("submitIUPCInfoForm").close();
                   }
                 }}
               >
-                Create
+                Submit
               </button>
             </div>
           </form>
@@ -164,4 +142,4 @@ const HostContestForm = () => {
   );
 };
 
-export default HostContestForm;
+export default SubmitIUPCInfoForm;

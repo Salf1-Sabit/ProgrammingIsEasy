@@ -40,14 +40,12 @@ const ContestsSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
             <li className="xl:hidden">
               <NavLink
-                to="/author/contests"
-                className={({ isActive }) =>
-                  isActive
-                    ? "flex gap-2 items-center p-1 sm:p-2 text-[#1E76CC]"
-                    : "flex gap-2 items-center p-1 sm:p-2 text-gray-400"
+                onClick={() =>
+                  document.getElementById("submitIUPCInfoForm").showModal()
                 }
+                className={"flex gap-2 items-center p-1 sm:p-2 text-gray-400"}
               >
-                <div>Host Contests</div>
+                <div>Submit IUPC Info</div>
               </NavLink>
             </li>
           </ul>

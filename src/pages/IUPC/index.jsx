@@ -6,6 +6,7 @@ import Wrapper from "../../components/UI/Wrapper";
 import IUPCSidebar from "./IUPCSidebar";
 import IUPCCTA from "./IUPCCTA";
 import IUPCMobileSidebar from "./IUPCMobileSidebar";
+import SubmitIUPCInfoForm from "./SubmitIUPCInfoForm";
 
 const index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -22,6 +23,7 @@ const index = () => {
       />
       <Outlet></Outlet>
       <IUPCCTA />
+      <SubmitIUPCInfoForm />
     </Wrapper>
   );
 };

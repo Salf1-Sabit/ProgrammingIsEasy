@@ -37,7 +37,7 @@ const Navbar = () => {
           className="brand-logo text-base sm:text-lg md:text-xl cursor-pointer"
           onClick={() => navigate("/")}
         >
-          ProgrammingIsEasy.com
+          &lt;/&gt; ProgrammingIsEasy
         </div>
 
         <ul className="middle-links hidden lg:flex">
