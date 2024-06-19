@@ -13,13 +13,13 @@ const HostContestCTA = () => {
           Submit upcoming/past national contest info here for admin approval.
           Thank you.
         </p>
-        <Button
-          text="Apply"
-          className="py-2 w-fit mx-auto"
+        <div
           onClick={() =>
             document.getElementById("submitIUPCInfoForm").showModal()
           }
-        />
+        >
+          <Button text="Apply" className="py-2 w-fit mx-auto" />
+        </div>
       </div>
     </aside>
   );
