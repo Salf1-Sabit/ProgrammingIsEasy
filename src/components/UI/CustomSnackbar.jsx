@@ -18,6 +18,9 @@ export default function CustomizedSnackbar() {
       open={isSnackbarOpen}
       autoHideDuration={6000}
       onClose={handleSnackbarClose}
+      sx={{
+        fontSize: "8px",
+      }}
     >
       <Alert
         onClose={handleSnackbarClose}

@@ -20,7 +20,7 @@ const MobileNavbar = ({ handleMobileNavbarClose }) => {
 
   return (
     <aside
-      className="z-10 flex justify-end absolute lg:hidden top-10 sm:top-[56px] md:top-[64px] right-0 h-screen bg-[#0000004d] w-full"
+      className="z-10 flex justify-end absolute lg:hidden top-[64px] right-0 h-screen bg-[#0000004d] w-full"
       onClick={handleBackdropClick}
     >
       <nav
