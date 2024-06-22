@@ -19,6 +19,7 @@ import AuthorContests from "../pages/Author/AuthorContests";
 import IUPC from "../pages/IUPC";
 import UpcomingIUPC from "../pages/IUPC/UpcomingIUPC";
 import PastIUPC from "../pages/IUPC/PastIUPC";
+import Editor from "../pages/Editor";
 
 export const routes = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const routes = createBrowserRouter([
           { path: "problems", element: <AuthorProblems /> },
           { path: "contests", element: <AuthorContests /> },
         ],
+      },
+      {
+        path: "editor",
+        element: <Editor />,
       },
     ],
   },

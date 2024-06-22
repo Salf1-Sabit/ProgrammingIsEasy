@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import Button from "../components/UI/Button";
 
 import getLoginStatus from "../utils/getLoginStatus";
 
@@ -20,7 +19,7 @@ const MobileNavbar = ({ handleMobileNavbarClose }) => {
 
   return (
     <aside
-      className="z-10 flex justify-end absolute lg:hidden top-[64px] right-0 h-screen bg-[#0000004d] w-full"
+      className="z-10 flex justify-end absolute xl:hidden top-[64px] right-0 h-screen bg-[#0000004d] w-full"
       onClick={handleBackdropClick}
     >
       <nav
@@ -35,10 +34,13 @@ const MobileNavbar = ({ handleMobileNavbarClose }) => {
             <NavLink to="/problems">Problems</NavLink>
           </li>
           <li>
-            <NavLink to="/contests">Contests</NavLink>
+            <NavLink to="/blogs">Blogs</NavLink>
           </li>
           <li>
-            <NavLink to="/blogs">Blogs</NavLink>
+            <NavLink to="/editor">Editor</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contests">Contests</NavLink>
           </li>
           <li>
             <NavLink to="/iupc">
@@ -58,11 +60,16 @@ const MobileNavbar = ({ handleMobileNavbarClose }) => {
         {!isLoggedIn && (
           <ul className="right-links flex gap-3 sm:gap-4">
             <li>
-              <Button text="Sign up" to="signup" />
+              <NavLink
+                to="/signup"
+                className=" px-3 rounded sm:px-5 py-1 sm:py-2 bg-[#00C4A7]"
+              >
+                Sign Up
+              </NavLink>
             </li>
             <li>
               <NavLink
-                to="/sigin"
+                to="/signin"
                 className="login-button px-3 sm:px-5 py-1 sm:py-2"
                 style={{ color: "#000" }}
               >
