@@ -10,8 +10,10 @@ import PastContests from "../pages/Contests/PastContests";
 import DummyStandings from "../pages/Contests/DummyStandings";
 import Blogs from "../pages/Blogs/Blogs";
 import Profile from "../pages/Profile/Profile";
-import SignUp from "../pages/Signup";
-import SignIn from "../components/Login/Login";
+import SignUp from "../pages/SignUp";
+import signUpLoader from "../pages/SignUp/loader";
+import SignIn from "../pages/SignIn";
+import signInAction from "../pages/SignIn/actions";
 import Author from "../pages/Author/Author";
 import AuthorDashboard from "../pages/Author/AuthorDashboard";
 import AuthorProblems from "../pages/Author/AuthorProblems";
@@ -20,6 +22,7 @@ import IUPC from "../pages/IUPC";
 import UpcomingIUPC from "../pages/IUPC/UpcomingIUPC";
 import PastIUPC from "../pages/IUPC/PastIUPC";
 import Editor from "../pages/Editor";
+import RequireAuth from "../pages/RequireAuth";
 
 export const routes = createBrowserRouter([
   {
@@ -41,9 +44,21 @@ export const routes = createBrowserRouter([
         ],
       },
       { path: "blogs", element: <Blogs /> },
-      { path: "profile", element: <Profile /> },
-      { path: "signup", element: <SignUp /> },
-      { path: "signin", element: <SignIn /> },
+      {
+        path: "profile",
+        element: (
+          <RequireAuth>
+            <Profile />
+          </RequireAuth>
+        ),
+      },
+      { path: "signup", element: <SignUp />, loader: signUpLoader },
+      {
+        path: "signin",
+        element: <SignIn />,
+        loader: signUpLoader,
+        action: signInAction,
+      },
       { path: "dummy-contest", element: <DummyStandings /> },
       {
         path: "iupc",
@@ -55,7 +70,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "author",
-        element: <Author />,
+        element: (
+          <RequireAuth>
+            <Author />
+          </RequireAuth>
+        ),
         children: [
           { index: true, element: <AuthorDashboard /> },
           { path: "problems", element: <AuthorProblems /> },

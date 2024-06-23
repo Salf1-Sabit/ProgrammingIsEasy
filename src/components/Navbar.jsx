@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "../assets/styles/Navbar.css";
 import { NavLink, useNavigate } from "react-router-dom";
 
-import UserIcon from "../assets/icons/user.png";
 import MenuIcon from "../assets/icons/menu.png";
 import CloseIcon from "../assets/icons/close.png";
 import { IoIosArrowDown } from "react-icons/io";
 
 import MobileNavbar from "./MobileNavbar";
 import getLoginStatus from "../utils/getLoginStatus";
+import ProfileIconContainer from "../components/UI/ProfileIconContainer";
 
 const Navbar = () => {
   const isLoggedIn = getLoginStatus();
@@ -63,9 +63,9 @@ const Navbar = () => {
 
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu p-2 shadow rounded bg-[#1E76CC] text-lg text-nowrap"
+                className="dropdown-content z-[1] menu shadow-xl border rounded bg-[#1E76CC] text-base text-nowrap"
               >
-                <li>
+                <li className="border-b">
                   <NavLink
                     to="/contests"
                     className={({ isActive }) => isActive && "underline"}
@@ -86,14 +86,8 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {isLoggedIn && (
-          <NavLink
-            className="w-6 h-6 lg:w-8 lg:h-8 cursor-pointer hidden lg:block ring-4 rounded-full"
-            to="/profile"
-          >
-            <img src={UserIcon} alt="user" />
-          </NavLink>
-        )}
+        {isLoggedIn && <ProfileIconContainer className="hidden xl:block" />}
+
         {!isLoggedIn && (
           <ul className="right-links hidden xl:flex">
             <li>

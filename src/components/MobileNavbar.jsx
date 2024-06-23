@@ -1,12 +1,11 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import getLoginStatus from "../utils/getLoginStatus";
 
-import UserIcon from "../assets/icons/user.png";
+import ProfileIconContainer from "./UI/ProfileIconContainer";
 
 const MobileNavbar = ({ handleMobileNavbarClose }) => {
-  const navigate = useNavigate();
   const isLoggedIn = getLoginStatus();
 
   const handleBackdropClick = () => {
@@ -49,14 +48,7 @@ const MobileNavbar = ({ handleMobileNavbarClose }) => {
           </li>
         </ul>
 
-        {isLoggedIn && (
-          <div
-            className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer ring-4 rounded-full"
-            onClick={() => navigate("/profile")}
-          >
-            <img src={UserIcon} alt="user" />
-          </div>
-        )}
+        {isLoggedIn && <ProfileIconContainer className="block xl:hidden" />}
         {!isLoggedIn && (
           <ul className="right-links flex gap-3 sm:gap-4">
             <li>

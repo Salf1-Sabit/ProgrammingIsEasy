@@ -42,6 +42,7 @@ const HeroSection = () => {
         <Button
           text="Get Started"
           className="px-3 sm:px-5 py-1 sm:py-2 w-fit mx-auto hover:bg-[#00bca0] transition-all duration-150"
+          to="/signin"
         />
       </div>
 
