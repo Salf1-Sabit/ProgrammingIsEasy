@@ -54,10 +54,10 @@ const SignUp = () => {
 
         <div className="w-96">
           <div className="w-full flex flex-col items-start gap-4 mb-12">
-            <h1 className="text-[22px] sm:text-[32px] lg:text-4xl leading-[10px] sm:leading-[30px] lg:leading-[40px] font-bold">
+            <h1 className="text-[22px] sm:text-[32px] lg:text-4xl leading-[10px] sm:leading-[30px] lg:leading-[40px] font-semibold">
               Create an account
             </h1>
-            <p className="text-[14px] sm:text-[18px] leading-[10px] sm:leading-[14px] lg:leading-[18px] font-bold">
+            <p className="text-[14px] sm:text-[18px] leading-[10px] sm:leading-[14px] lg:leading-[18px] font-semibold">
               Enter your details below
             </p>
           </div>
@@ -124,7 +124,7 @@ const SignUp = () => {
           <div className="flex flex-col gap-8 text-[12px] sm:text-sm lg:text-[16px]">
             <button
               className="flex items-center justify-center gap-2 w-full border-2 
-          rounded-md hover:bg-gray-100 font-semibold text-[12px] sm:text-sm lg:text-[16px] 
+          rounded-md hover:bg-gray-100 font-medium text-[12px] sm:text-sm lg:text-[16px] 
           px-5 sm:px-6 lg:px-7 py-1 duration-200"
             >
               <span className="text-[18px] sm:text-[20px] lg:text-[25px]">
@@ -134,8 +134,11 @@ const SignUp = () => {
             </button>
             <p className="mx-auto text-[14px] sm:text-[18px] leading-[10px] sm:leading-[14px] lg:leading-[18px]">
               Already have account?{" "}
-              <NavLink to="/signin" className="underline">
-                <strong>Log in</strong>
+              <NavLink
+                to="/signin"
+                className="underline font-medium hover:text-[#1E76CC] transition-all duration-200"
+              >
+                Log in
               </NavLink>
             </p>
           </div>

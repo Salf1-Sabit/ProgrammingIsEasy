@@ -86,10 +86,10 @@ const SignIn = () => {
           />
           <div className="w-96 my-auto">
             <div className="w-full flex flex-col items-start gap-4 mb-12 ">
-              <h1 className="text-[22px] sm:text-[32px] lg:text-4xl leading-[24px] sm:leading-[30px] lg:leading-[40px] font-bold">
+              <h1 className="text-[22px] sm:text-[32px] lg:text-4xl leading-[24px] sm:leading-[30px] lg:leading-[40px] font-semibold">
                 Log in to ProgrammingIsEasy
               </h1>
-              <p className="text-[14px] sm:text-[18px] leading-[10px] sm:leading-[14px] lg:leading-[18px] font-bold">
+              <p className="text-[14px] sm:text-[18px] leading-[10px] sm:leading-[14px] lg:leading-[18px] font-semibold">
                 Enter your details below
               </p>
             </div>
