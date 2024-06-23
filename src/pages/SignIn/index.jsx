@@ -122,8 +122,8 @@ const SignIn = () => {
                 </button>
                 <Link
                   to="/signin"
-                  className=" bg-white-900 ml-2 text-gray-300 mb-2 font-semibold text-[12px] 
-            sm:text-sm lg:text-[16px] sm:px-6 lg:px-7 py-1 sm:py-[6px] lg:py-2 text-nowrap "
+                  className=" bg-white-900 ml-2 underline text-gray-600 hover:text-[#1E76CC] mb-2 font-medium text-[12px] 
+            sm:text-sm lg:text-[16px] sm:px-6 lg:px-7 py-1 sm:py-[6px] lg:py-2 text-nowrap transition-all duration-200"
                 >
                   Forgot Password?
                 </Link>
@@ -132,7 +132,9 @@ const SignIn = () => {
             <p className="mx-auto text-[14px] sm:text-[18px] leading-[10px] sm:leading-[14px] lg:leading-[18px] mt-8">
               Don't have an account?{" "}
               <NavLink to="/signup" className="underline">
-                <span className="font-semibold">Sign up</span>
+                <span className="font-medium hover:text-[#1E76CC] transition-all duration-200">
+                  Sign up
+                </span>
               </NavLink>
             </p>
           </div>
