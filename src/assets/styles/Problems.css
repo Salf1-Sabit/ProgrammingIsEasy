@@ -41,11 +41,9 @@
 
 .problems__progress-bar {
   position: relative;
-  width: 60%;
-  height: 36px;
+  width: 90%;
   margin: 1em auto;
   max-width: 900px;
-  background-color: var(--gray-bg-dark);
   border: 1px solid var(--gray-border-dark);
   border-radius: 10px;
   overflow: hidden;
@@ -63,7 +61,6 @@
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
-  font-size: 1.4rem;
 }
 
 .problems__progress-bar__text {
@@ -73,12 +70,10 @@
 .problems__problems-list {
   background-color: var(--gray-bg-light);
   border: 1px solid var(--gray-border-light);
-  width: 75%;
   max-width: 1400px;
   margin: 0 auto;
   border-radius: 10px;
   text-align: center;
-  padding: 1em;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -90,6 +85,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.4em;
 }
 
 .problems__problems-list .list-row .list-col {
@@ -97,19 +93,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.problems__problems-list .list-row .list-col:nth-child(1) {
-  width: 6%;
-}
-
-.problems__problems-list .list-row .list-col:nth-child(2) {
-  width: 75%;
-}
-
-.problems__problems-list .list-row .list-col:nth-child(3),
-.problems__problems-list .list-row .list-col:nth-child(4) {
-  width: 8%;
 }
 
 .problems__problems-list .list-row .list-col {
