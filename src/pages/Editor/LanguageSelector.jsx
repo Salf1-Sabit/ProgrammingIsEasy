@@ -5,8 +5,12 @@ const languages = Object.entries(LANGUAGE_VERSIONS);
 
 const LanguageSelector = ({ language, onSelect }) => {
   return (
-    <div className="dropdown  dropdown-bottom dropdown-end dropdown-hover border px-[1em] py-[.2em] bg-white text-sm md:text-base hover:bg-gray-100 transition-all duration-150 cursor-pointer">
-      <div className="flex items-center gap-1 sm:gap-2 md:gap-3">
+    <div className="dropdown  dropdown-bottom dropdown-end  border px-[1em] py-[.2em] bg-white text-sm md:text-base hover:bg-gray-100 transition-all duration-150 cursor-pointer">
+      <div
+        tabIndex={0}
+        role="button"
+        className="flex items-center gap-1 sm:gap-2 md:gap-3"
+      >
         <p>
           {language[0].toUpperCase() + language.slice(1)}{" "}
           <span className="text-gray-500 ml-[.3em]">
@@ -23,11 +27,11 @@ const LanguageSelector = ({ language, onSelect }) => {
           <li
             key={lang}
             className={`${
-              lang === language && "bg-[#e9f1fa] text-[#1E76CC] rounded-none"
-            } "hover:bg-gray-100 rounded-none"`}
+              lang === language && "bg-[#e9f1fa] text-[#1E76CC] rounded-sm"
+            } "hover:bg-gray-100 rounded-sm"`}
             onClick={() => onSelect(lang)}
           >
-            <p className="rounded-none">
+            <p className="rounded-sm">
               <span>{lang[0].toUpperCase() + lang.slice(1)} </span>
               <span
                 className={`${

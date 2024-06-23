@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
+import Footer from "../Footer";
 import CustomizedSnackbar from "../../components/UI/CustomSnackbar";
 import { Outlet } from "react-router";
 
@@ -9,6 +10,7 @@ const index = () => {
       <Navbar />
       <CustomizedSnackbar />
       <Outlet></Outlet>
+      <Footer />
     </>
   );
 };

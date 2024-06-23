@@ -12,7 +12,7 @@ const index = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <Wrapper className="flex relative">
+    <Wrapper className="flex relative mb-[5%] md:mb-[2%]">
       <IUPCSidebar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
