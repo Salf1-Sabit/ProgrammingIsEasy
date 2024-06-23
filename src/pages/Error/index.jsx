@@ -1,8 +1,6 @@
 import { useNavigate, useRouteError } from "react-router-dom";
 import Button from "../../components/UI/Button";
 import Wrapper from "../../components/UI/Wrapper";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 
 const ErrorBoundary = () => {
   const error = useRouteError();
@@ -32,8 +30,7 @@ const ErrorBoundary = () => {
   }
   return (
     <div>
-      <Navbar />
-      <Wrapper className="min-h-[95vh] flex justify-center items-center">
+      <Wrapper className="min-h-screen flex justify-center items-center">
         <div className="flex flex-col items-center gap-3 px-6 py-10 xs:p-12 sm:p-14 md:p-16 lg:p-20">
           <p className="text-nowrap text-[40px] xs:text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] font-medium">
             <span>{status} </span>
@@ -49,7 +46,6 @@ const ErrorBoundary = () => {
           />
         </div>
       </Wrapper>
-      <Footer />
     </div>
   );
 };
