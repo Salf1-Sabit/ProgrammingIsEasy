@@ -29,7 +29,7 @@ const ErrorBoundary = () => {
       "The server encountered an internal error and was unable to complete your request.";
   }
   return (
-    <div>
+    <div className="bg-[#e9f1fa]">
       <Wrapper className="min-h-screen flex justify-center items-center">
         <div className="flex flex-col items-center gap-3 px-6 py-10 xs:p-12 sm:p-14 md:p-16 lg:p-20">
           <p className="text-nowrap text-[40px] xs:text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] font-medium">
@@ -41,7 +41,7 @@ const ErrorBoundary = () => {
           </p>
           <Button
             text="Back to home page"
-            className="mt-2 xs:mt-3 sm:mt-4 md:mt-8 lg:mt-10 py-[.5em]"
+            className="mt-2 xs:mt-3 sm:mt-4 md:mt-8 lg:mt-10 py-[.5em] hover:bg-[#00bca0] transition-all duration-200"
             onClick={() => navigate("/")}
           />
         </div>
