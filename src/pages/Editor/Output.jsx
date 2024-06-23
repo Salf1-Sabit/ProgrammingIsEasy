@@ -43,7 +43,7 @@ const Output = ({ editorRef, language }) => {
       }`}
     >
       <div className="flex justify-between items-center px-[1em] py-[.5em] border-b text-sm md:text-base bg-white">
-        <h1 className="font-semibold text-gray-700">Output</h1>
+        <h1 className="font-semibold text-gray-600">Output</h1>
         <div className="flex gap-1 sm:gap-2">
           <button
             className="border px-[1em] py-[.2em]  flex justify-center items-center hover:bg-gray-100 transition-all duration-150 text-gray-800"

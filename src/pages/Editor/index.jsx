@@ -32,7 +32,8 @@ const index = () => {
 
       <div className="flex flex-col md:flex-row border border-gray-200">
         <div className="w-full md:w-[50%] h-[37vh] md:h-[75vh] overflow-y-hidden">
-          <div className="flex justify-end px-[1em] py-[.5em] border-b border-r">
+          <div className="flex justify-between items-center px-[1em] py-[.5em] border-b text-sm md:text-base bg-white">
+            <h1 className="font-semibold text-gray-600">Editor</h1>
             <LanguageSelector language={language} onSelect={onSelect} />
           </div>
 

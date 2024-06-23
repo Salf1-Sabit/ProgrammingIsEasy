@@ -35,9 +35,9 @@ const HeroSection = () => {
           Master competitive programming with our curated resources and tools.
           Access high-quality materials, diverse practice problems, and the
           latest contest updates. Utilize our online editor supporting 60+
-          languages, learn from grandmaster blogs, and follow a roadmap from
-          beginner to Codeforces expert. Host contests for free and join our
-          vibrant programming community.
+          languages, learn from blogs written by grandmasters, and follow a
+          roadmap from beginner to Codeforces expert. Host contests for free and
+          join our vibrant programming community.
         </p>
         <Button
           text="Get Started"
