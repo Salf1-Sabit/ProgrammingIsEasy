@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Wrapper from "../components/UI/Wrapper";
+import Wrapper from "./UI/Wrapper";
 
 const Footer = () => {
   return (

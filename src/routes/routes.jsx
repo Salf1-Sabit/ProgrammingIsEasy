@@ -23,11 +23,13 @@ import UpcomingIUPC from "../pages/IUPC/UpcomingIUPC";
 import PastIUPC from "../pages/IUPC/PastIUPC";
 import Editor from "../pages/Editor";
 import RequireAuth from "../pages/RequireAuth";
+import ErrorBoundary from "../pages/Error";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorBoundary />,
     children: [
       { index: true, element: <Home /> },
       { path: "roadmap", element: <Roadmap /> },

@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
-import Footer from "../Footer";
+import Footer from "../../components/Footer";
 import CustomizedSnackbar from "../../components/UI/CustomSnackbar";
 import { Outlet } from "react-router";
 
