@@ -7,7 +7,6 @@ import ContestIcon from "../../assets/icons/achievement.png";
 import Wrapper from "../../components/UI/Wrapper";
 import "./profile.css";
 
-// context
 import { SnackbarContext } from "../../components/store/SnackbarContext";
 
 const RANK_COLOR = {
@@ -24,11 +23,16 @@ const RANK_COLOR = {
 };
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
-  const [totalContest, setTotalContest] = useState(null);
-  const [userName, setUserName] = useState("");
+  const [user, setUser] = useState(
+    null || JSON.parse(localStorage.getItem("profileUser"))
+  );
+  const [totalContest, setTotalContest] = useState(
+    null || localStorage.getItem("profileTotalContest")
+  );
   const inputRef = useRef(null);
-
+  const [userName, setUserName] = useState(
+    "" || localStorage.getItem("profileUserName")
+  );
   const { handleSnackbarClick } = React.useContext(SnackbarContext);
 
   const getUser = useCallback(async () => {
@@ -46,15 +50,24 @@ const Profile = () => {
         `https://codeforces.com/api/user.info?handles=${userName}&checkHistoricHandles=false`
       );
       setUser(userInfoResponse.data.result[0]);
+      localStorage.setItem(
+        "profileUser",
+        JSON.stringify(userInfoResponse.data.result[0])
+      );
 
       // Fetch user rating
       const userRatingResponse = await axios.get(
         `https://codeforces.com/api/user.rating?handle=${userName}`
       );
       setTotalContest(userRatingResponse.data.result.length);
+      localStorage.setItem(
+        "profileTotalContest",
+        userRatingResponse.data.result.length
+      );
 
       // If both calls were successful
       handleSnackbarClick("Profile added successfully", "success");
+      localStorage.setItem("profileUserName", userName);
     } catch (error) {
       handleSnackbarClick(
         "Sorry, the username is not correct. Please try again",
@@ -85,10 +98,10 @@ const Profile = () => {
 
   return (
     <>
-      <div className="profile-container text-sm sm:text-lg">
+      <Wrapper className="profile-container text-sm sm:text-lg">
         {user ? (
           <div className="profile-outer-container">
-            <div className="profile">
+            <div className="profile flex flex-col md:flex-row rounded">
               <img
                 className="profile__img"
                 src={user.titlePhoto}
@@ -102,7 +115,7 @@ const Profile = () => {
                   </span>
                 </h3>
                 <h1
-                  className="profile__description__user-name"
+                  className="profile__description__user-name leading-10 font-medium"
                   style={{ color: `${RANK_COLOR[user.rank]}` }}
                 >
                   <span
@@ -189,12 +202,18 @@ const Profile = () => {
                 </p>
               </div>
             </div>
+
+            <div></div>
+
             <div className="profile__btn-container">
               <button
-                className="profile__btn-handle-remove"
+                className="bg-[#00D1B2] hover:bg-[#00C4A7] rounded px-3 sm:px-5 py-1 text-white font-medium text-sm md:text-base"
                 onClick={() => {
                   setUserName("");
                   setUser("");
+                  localStorage.removeItem("profileUser");
+                  localStorage.removeItem("profileUserName");
+                  localStorage.removeItem("profileTotalContest");
                   handleSnackbarClick("Profile removed sucessfully", "success");
                 }}
                 style={{ cursor: "pointer" }}
@@ -204,7 +223,7 @@ const Profile = () => {
             </div>
           </div>
         ) : (
-          <Wrapper className="flex justify-center items-center flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+          <div className="flex justify-center items-center flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-6">
             <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-semibold">
               Please enter your Codeforces handle
             </h2>
@@ -226,9 +245,9 @@ const Profile = () => {
                 Save Profile
               </button>
             </div>
-          </Wrapper>
+          </div>
         )}
-      </div>
+      </Wrapper>
     </>
   );
 };

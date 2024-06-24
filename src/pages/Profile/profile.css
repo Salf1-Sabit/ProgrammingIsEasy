@@ -16,7 +16,6 @@
 }
 
 .profile {
-  display: flex;
   width: fit-content;
   align-items: center;
   max-width: 1300px;
@@ -25,7 +24,6 @@
   gap: 3em;
   font-size: min(12px, 4vw);
   border: 1px solid var(--gray-border-dark);
-  border-radius: 10px;
 }
 
 .profile p {
@@ -41,8 +39,6 @@
 }
 
 .profile img {
-  max-width: 600px;
-  max-height: 300px;
   object-fit: contain;
 }
 
