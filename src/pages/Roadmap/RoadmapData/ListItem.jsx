@@ -16,7 +16,7 @@ const ListItem = ({ taskId, link, title, image }) => {
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >
-      <div className="flex items-center">
+      <div className="flex items-center justify-center">
         <div
           className={`checked-icon-container rounded ${
             isTaskDone
@@ -26,7 +26,9 @@ const ListItem = ({ taskId, link, title, image }) => {
               : "bg-[#edeff0]"
           }  mr-2 flex justify-center items-center p-[6px] sm:p-2`}
         >
-          <div className={`w-3 h-3 md:w-4 md:h-4"}`}>
+          <div
+            className={`w-3 h-3 md:w-4 md:h-4 flex justify-center items-center"}`}
+          >
             <img src={image} alt="" />
           </div>
         </div>

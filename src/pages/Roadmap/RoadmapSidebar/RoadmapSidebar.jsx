@@ -39,6 +39,7 @@ const RoadmapSidebar = ({ curSectionHandler, curSection, curLevel }) => {
           </span>
           <span> Level 1</span>
         </li>
+
         <li
           onClick={() => curSectionHandler("Learn C++", "Level 2")}
           style={{
@@ -69,6 +70,7 @@ const RoadmapSidebar = ({ curSectionHandler, curSection, curLevel }) => {
           </span>
           <span> Level 2</span>
         </li>
+
         <li
           onClick={() => curSectionHandler("Learn C++", "Level 3")}
           style={{
@@ -99,6 +101,7 @@ const RoadmapSidebar = ({ curSectionHandler, curSection, curLevel }) => {
           </span>
           <span> Level 3</span>
         </li>
+
         <li
           onClick={() => curSectionHandler("Learn C++", "Level 4")}
           style={{
@@ -129,6 +132,7 @@ const RoadmapSidebar = ({ curSectionHandler, curSection, curLevel }) => {
           </span>
           <span> Level 4</span>
         </li>
+
         <li
           onClick={() => curSectionHandler("Learn C++", "Level 5")}
           style={{
@@ -159,6 +163,7 @@ const RoadmapSidebar = ({ curSectionHandler, curSection, curLevel }) => {
           </span>
           <span> Level 5</span>
         </li>
+
         <li
           onClick={() => curSectionHandler("Learn C++", "Level 6")}
           style={{
@@ -189,6 +194,7 @@ const RoadmapSidebar = ({ curSectionHandler, curSection, curLevel }) => {
           </span>
           <span> Level 6</span>
         </li>
+
         <li
           onClick={() => curSectionHandler("Learn C++", "Level 7")}
           style={{

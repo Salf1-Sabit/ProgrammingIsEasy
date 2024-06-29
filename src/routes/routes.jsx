@@ -32,7 +32,14 @@ export const routes = createBrowserRouter([
     errorElement: <ErrorBoundary />,
     children: [
       { index: true, element: <Home /> },
-      { path: "roadmap", element: <Roadmap /> },
+      {
+        path: "roadmap",
+        element: (
+          <RequireAuth>
+            <Roadmap />
+          </RequireAuth>
+        ),
+      },
       { path: "problems", element: <Problems /> },
       {
         path: "contests",
