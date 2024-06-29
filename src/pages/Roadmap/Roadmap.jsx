@@ -32,7 +32,7 @@ const Roadmap = () => {
   };
 
   return (
-    <div className="roadmap-outer-container">
+    <div className="roadmap-outer-container mb-[5%] sm:mb-[3%]">
       <div className="roadmap-container">
         <RoadmapSidebar
           roadmapDataHandler={roadmapDataHandler}

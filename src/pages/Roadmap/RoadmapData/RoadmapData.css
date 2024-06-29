@@ -18,16 +18,7 @@
 }
 
 .roadmap__data-container ul li:hover {
-  background-color: #edeff0;
   text-decoration: underline;
-}
-
-.roadmap__data-container .checked-icon-container {
-  background-color: #edeff0;
-}
-
-.roadmap__data-container li:hover .checked-icon-container {
-  background-color: #fff;
 }
 
 .roadmap__data-actions {

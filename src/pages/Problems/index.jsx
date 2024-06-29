@@ -85,7 +85,7 @@ const Problems = () => {
   }, []);
 
   return (
-    <Wrapper className="problems mt-[8%] sm:mt-[5%]">
+    <Wrapper className="problems my-[8%] sm:my-[5%]">
       <ProblemsHeader curRating={curRating} />
 
       <ProblemsRatings
